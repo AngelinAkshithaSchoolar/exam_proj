@@ -27,6 +27,11 @@ Route::get('/practice', [PracticeController::class, 'index'])->name('practice.in
 Route::view('/mock-tests/history', 'mock-tests.history')->name('mock-history.index');
 Route::post('/practice', [PracticeController::class, 'api'])->name('practice.api');
 
+// ---- RRB ALP CBT 1 mock test ---------------------------------------------
+// The whole test — instructions, question player, result and answer review —
+// lives in resources/views/alp-cbt1.blade.php. Nothing else to wire up.
+Route::view('/alp-cbt1', 'alp-cbt1')->name('alp-cbt1');
+
 // ---- Supporting pages ----------------------------------------------------
 Route::get('/my-tests', [PageController::class, 'mockTests'])->name('mock-tests.index');
 Route::get('/profile', [PageController::class, 'profile'])->name('profile');

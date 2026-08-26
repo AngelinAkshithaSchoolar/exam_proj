@@ -10,6 +10,7 @@
 
 <a href="{{ route('dashboard') }}" @class(['active' => $active === 'dashboard'])><span class="ico">🏠</span> Dashboard</a>
 <a href="{{ route('mock-tests.index') }}" @class(['active' => $active === 'mock-tests'])><span class="ico">📋</span> My Tests</a>
+<a href="{{ route('alp-cbt1') }}" @class(['active' => $active === 'alp-cbt1'])><span class="ico">🚂</span> RRB ALP CBT 1</a>
 <a href="{{ route('practice.index') }}" @class(['active' => $active === 'practice'])><span class="ico">🎯</span> Practice</a>
 <a href="{{ route('mira.index') }}" @class(['active' => $active === 'mira'])><span class="ico">✨</span> AI Tutor (Mira)</a>
 <a href="{{ route('live-classes.index') }}" @class(['active' => $active === 'live-classes'])><span class="ico">📡</span> Live Classes <span class="live badge-live">LIVE</span></a>
