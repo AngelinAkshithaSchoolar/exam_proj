@@ -4,9 +4,9 @@
 @section('page-title', 'Mock Test History')
 @section('page-sub', 'View all your previous mock tests and review your performance.')
 
-@php($active = 'mock-history')
-
 @php
+    $active = 'mock-history';
+
     /*
      |------------------------------------------------------------------
      | Fallback data — override by passing these from a controller:
@@ -132,9 +132,15 @@
     </defs>
 </svg>
 
-<div class="mb-5 flex justify-end">
+<div class="mb-5 flex flex-wrap items-center gap-4">
+    <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-[13.5px] font-medium text-ink-500">
+        <a href="{{ route('dashboard') }}" class="transition hover:text-ink-900">Home</a>
+        <span class="text-slate-300">/</span>
+        <span class="font-semibold text-brand-600">Mock History</span>
+    </nav>
+
     <button type="button" id="exportBtn"
-            class="flex h-12 items-center gap-2 rounded-xl border-[1.5px] border-brand-200 px-5 text-[14.5px] font-semibold text-brand-600 transition hover:border-brand-300 hover:bg-brand-50">
+            class="ml-auto flex h-12 items-center gap-2 rounded-xl border-[1.5px] border-brand-200 px-5 text-[14.5px] font-semibold text-brand-600 transition hover:border-brand-300 hover:bg-brand-50">
         <svg viewBox="0 0 24 24" class="h-[18px] w-[18px]"><use href="#i-download"/></svg>
         Export
     </button>

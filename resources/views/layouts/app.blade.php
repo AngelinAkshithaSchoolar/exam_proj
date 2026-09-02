@@ -231,7 +231,11 @@ body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,Helvetica,Ar
             </div>
 
             <div class="top-actions">
-                <div class="rel">
+                {{-- Page-specific topbar controls. Empty on every page that does
+                     not define it, so nothing changes anywhere else. --}}
+                @yield('topbar-extra')
+
+                <div class="rel" id="testPill">
                     <button type="button" class="pill-select" id="testPillBtn"><span id="testPillLabel">PTE Academic</span> ▾</button>
                     <div class="test-dropdown" id="testPillDropdown">
                         @foreach (['PTE Academic','IELTS Academic','TOEFL iBT','Duolingo English Test','GRE General Test'] as $exam)

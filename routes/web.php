@@ -18,14 +18,25 @@ Route::redirect('/', '/dashboard');
 // ---- The four real pages -------------------------------------------------
 Route::view('/dashboard', 'dashboard')->name('dashboard');
 
+// K-12 / exam-prep Learning Dashboard. Sits directly under Dashboard in the
+// sidebar. Self-contained view — every variable in it has a fallback, so
+// Route::view is enough until real data is wired in from a controller.
+Route::view('/learning-dashboard', 'learning-dashboard')->name('learning-dashboard');
+
 Route::view('/live-classes', 'live-classes')->name('live-classes.index');
 
 Route::view('/mira', 'mira')->name('mira.index');
 
 Route::get('/practice', [PracticeController::class, 'index'])->name('practice.index');
 
-Route::view('/mock-tests/history', 'mock-tests.history')->name('mock-history.index');
 Route::post('/practice', [PracticeController::class, 'api'])->name('practice.api');
+
+// Mock History. URL matches the sidebar label and the route name; the view
+// itself stays at resources/views/mock-tests/history.blade.php.
+Route::view('/mock-history', 'mock-tests.history')->name('mock-history.index');
+
+// Old nested URL kept alive so any bookmark still lands in the right place.
+Route::redirect('/mock-tests/history', '/mock-history');
 
 // ---- RRB ALP CBT 1 mock test ---------------------------------------------
 // The whole test — instructions, question player, result and answer review —

@@ -9,6 +9,7 @@
 @php($active = $active ?? '')
 
 <a href="{{ route('dashboard') }}" @class(['active' => $active === 'dashboard'])><span class="ico">🏠</span> Dashboard</a>
+<a href="{{ route('learning-dashboard') }}" @class(['active' => $active === 'learning-dashboard'])><span class="ico">🎓</span> Learning Dashboard</a>
 <a href="{{ route('mock-tests.index') }}" @class(['active' => $active === 'mock-tests'])><span class="ico">📋</span> My Tests</a>
 <a href="{{ route('alp-cbt1') }}" @class(['active' => $active === 'alp-cbt1'])><span class="ico">🚂</span> RRB ALP CBT 1</a>
 <a href="{{ route('practice.index') }}" @class(['active' => $active === 'practice'])><span class="ico">🎯</span> Practice</a>
