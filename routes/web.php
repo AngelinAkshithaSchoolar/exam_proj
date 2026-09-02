@@ -50,6 +50,9 @@ Route::post('/logout', [PageController::class, 'logout'])->name('logout');
 
 Route::get('/coming-soon/{feature}', [PageController::class, 'comingSoon'])->name('coming-soon');
 
+
 // ---- Aliases for the demo URLs baked into the original files -------------
 Route::redirect('/dashboard-demo', '/dashboard');
 Route::redirect('/live-class-demo', '/live-classes');
+
+Route::view('/performance', 'performance', ['active' => 'performance'])->name('performance');
