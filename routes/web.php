@@ -18,6 +18,11 @@ Route::redirect('/', '/dashboard');
 // ---- The four real pages -------------------------------------------------
 Route::view('/dashboard', 'dashboard')->name('dashboard');
 
+// K-12 / exam-prep Learning Dashboard. Sits directly under Dashboard in the
+// sidebar. Self-contained view — every variable in it has a fallback, so
+// Route::view is enough until real data is wired in from a controller.
+Route::view('/learning-dashboard', 'learning-dashboard')->name('learning-dashboard');
+
 Route::view('/live-classes', 'live-classes')->name('live-classes.index');
 
 Route::view('/mira', 'mira')->name('mira.index');
