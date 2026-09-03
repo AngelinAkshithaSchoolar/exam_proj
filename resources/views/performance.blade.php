@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
-@section('title', 'Performance')
+@section('title', 'Performance — schoolar.ai')
+
+{{-- These two feed the topbar. Without them the layout falls back to its
+     default heading ("Dashboard"), which is what this page used to show. --}}
+@section('page-title', 'Performance')
+@section('page-sub', 'Track your academic and exam performance in one place.')
 
 @php
     /*
@@ -147,9 +152,7 @@
 .perf-page h1,.perf-page h2,.perf-page h3,.perf-page h4,.perf-page p{margin:0;}
 
 /* ---------- page header --------------------------------------------------- */
-.pf-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:18px;}
-.pf-head h1{font-size:26px;font-weight:700;letter-spacing:-.3px;}
-.pf-head p{color:var(--pf-muted);font-size:13px;margin-top:4px;}
+.pf-head{display:flex;align-items:flex-start;justify-content:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:18px;}
 .pf-select{
     appearance:none;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='none' stroke='%237A8194' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 5l4 4 4-4'/%3E%3C/svg%3E") no-repeat right 12px center;
     border:1px solid var(--pf-border);border-radius:10px;padding:10px 34px 10px 14px;
@@ -347,7 +350,6 @@
     .pf-donut-wrap{justify-content:center;}
 }
 @media (max-width:560px){
-    .pf-head h1{font-size:22px;}
     .pf-select,.pf-daterange{width:100%;}
     .pf-tabs{width:100%;}
     .pf-tab{flex:1;padding:8px 6px;font-size:12px;}
@@ -361,12 +363,11 @@
 @section('content')
 <div class="perf-page">
 
-    {{-- ================= HEADER ================= --}}
+    {{-- ================= HEADER =================
+         The title and subtitle now come from the topbar — see the page-title
+         and page-sub sections at the top of this file. Only the class selector
+         is left here, so .pf-head right-aligns its single child. --}}
     <div class="pf-head">
-        <div>
-            <h1>Performance</h1>
-            <p>Track your academic and exam performance in one place.</p>
-        </div>
         <select class="pf-select" id="pfClassSelect">
             @foreach ($classOptions as $option)
                 <option @selected($option === $selectedClass)>{{ $option }}</option>
