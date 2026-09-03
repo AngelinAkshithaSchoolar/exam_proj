@@ -244,8 +244,9 @@ body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,Helvetica,Ar
                     </div>
                 </div>
 
-                <button type="button" class="icon-btn" title="Calendar"
-                        onclick="showToast('Calendar opened — no events due today')">📅</button>
+                {{-- Topbar calendar icon → the Calendar page. --}}
+                <a href="{{ route('calendar') }}" class="icon-btn" title="Calendar"
+                   style="text-decoration:none">📅</a>
 
                 <div class="rel">
                     <button type="button" class="icon-btn" id="bellBtn" title="Notifications">🔔<span class="badge" id="bellBadge">{{ session('unread_notifications', 6) }}</span></button>

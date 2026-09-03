@@ -43,6 +43,12 @@ Route::redirect('/mock-tests/history', '/mock-history');
 // lives in resources/views/alp-cbt1.blade.php. Nothing else to wire up.
 Route::view('/alp-cbt1', 'alp-cbt1')->name('alp-cbt1');
 
+// ---- Calendar ------------------------------------------------------------
+// Month / Week / List calendar with add / edit / delete. The view is
+// self-contained — its seed events live in the view's PHP data block — so
+// Route::view is enough until a CalendarController and an events table exist.
+Route::view('/calendar', 'calendar', ['active' => 'calendar'])->name('calendar');
+
 // ---- Supporting pages ----------------------------------------------------
 Route::get('/my-tests', [PageController::class, 'mockTests'])->name('mock-tests.index');
 Route::get('/profile', [PageController::class, 'profile'])->name('profile');
